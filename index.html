@@ -73,7 +73,7 @@
         <label for="fullname">ФИО:</label>
 
         <h1>Записаться на приём.</h1>
-        <input type="text" placeholder="Имя" id="chatId">
+        <input type="text" placeholder="Имя" id="fullname">
         <p></p>
         <input type="text" placeholder="Email" id="user_email">
         <p></p>
@@ -83,11 +83,12 @@
     </form>
     <script src=" https://telegram.org/js/telegram-web-app.js "></script>
     <script>
+        
         const urlParams = new URLSearchParams(window.location.search);
         const chatId = urlParams.get("id");
 
         if (chatId) {
-            fetch(`https://vladislav-kis.github.io/test-site_for-record/user?id=${chatId}`)
+            fetch(`https://vladislav-kis.github.io/test-site_for-record/?id=${chatId}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("User not found1");
@@ -104,8 +105,6 @@
         } else {
             alert("Chat ID not provided.");
         }
-    </script>
-    <script>
         let tg = window.Telegram.WebApp;
         let order = document.getElementById("order");
         tg.expand();
@@ -122,8 +121,6 @@
             tg.sendData(JSON.stringify(data));
             tg.close();
         });
-
-
     </script>
 
 </body>
