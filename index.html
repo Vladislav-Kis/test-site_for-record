@@ -70,7 +70,7 @@
 </head>
 <body>
     <form id="form">
-        <label for="fullname">1ФИО:</label>
+        <label for="fullname">2ФИО:</label>
 
         <h1>Записаться на приём.</h1>
         <input type="text" placeholder="Имя" id="fullname">
@@ -87,7 +87,7 @@
         const chatId = urlParams.get("id");
 
         if (chatId) {
-            fetch(`https://vladislav-kis.github.io/test-site_for-record/?id=${chatId}`)
+            fetch(`https://vladislav-kis.github.io/test-site_for-record/index.html?id=${chatId}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("User not found1");
