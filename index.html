@@ -88,10 +88,10 @@
         const chatId = urlParams.get("id");
 
         if (chatId) {
-            fetch(`https://vladislav-kis.github.io/test-site_for-record/user?id=${chatId}`)
+            fetch(`https://vladislav-kis.github.io/test-site_for-record/?id=${chatId}`)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("User not found");
+                        throw new Error("User not found1");
                     }
                     return response.json();
                 })
