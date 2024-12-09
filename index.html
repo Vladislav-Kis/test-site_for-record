@@ -70,7 +70,7 @@
 </head>
 <body>
     <form id="form">
-        <label for="fullname">1ФИО:</label>
+        <label for="fullname">2ФИО:</label>
 
         <h1>Записаться на приём.</h1>
         <input type="text" placeholder="Имя" id="user_name">
@@ -90,9 +90,9 @@
         let order = document.getElementById("order");
         tg.expand();
 
-        open.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;    
-        });
+        // open.addEventListener("click", () => {
+        //     let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;    
+        // });
 
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
