@@ -75,6 +75,8 @@
         <h1>Записаться на приём.</h1>
         <input type="text" placeholder="Имя" id="user_name">
         <p></p>
+        <input type="text" placeholder="ФИО" id="fullname">
+        <p></p>
         <input type="text" placeholder="Email" id="user_email">
         <p></p>
         <input type="text" placeholder="Телефон" id="user_phone">
@@ -89,7 +91,12 @@
         let order = document.getElementById("order");
         tg.expand();
         let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
-
+        if (tg.initDataUnsafe){
+            const initData = tg.initDataUnsafe;
+            const userData = JSON.parse(initData.userData || '{}');
+            const fullName = `${userData.Firstname || ''} ${userData.Lastname || ''} ${userData.Middlename || ''}`.trim();
+            document.getElementById('fullname').value = FullName;
+        }
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
             let email = document.getElementById("user_email").value;
