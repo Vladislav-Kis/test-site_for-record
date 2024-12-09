@@ -73,7 +73,7 @@
         <label for="fullname">ФИО:</label>
 
         <h1>Записаться на приём.</h1>
-        <input type="text" placeholder="Имя" id="fullname">
+        <input type="text" placeholder="Имя" id="user_nsmr">
         <p></p>
         <input type="text" placeholder="Email" id="user_email">
         <p></p>
@@ -83,43 +83,15 @@
     </form>
     <script src=" https://telegram.org/js/telegram-web-app.js "></script>
     <script>
-        
-        const urlParams = new URLSearchParams(window.location.search);
-        const chatId = urlParams.get("id");
-
-        if (chatId) {
-            fetch(`https://Purp1e13.pythonanywhere.con/user?id=${chatId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("User not found1");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const fullName = `${data.Lastname} ${data.Firstname} ${data.Middlename}`;
-                    document.getElementById("fullname").value = fullName;
-                })
-                .catch(error => {
-                    alert(error.message);
-                });
-        } else {
-            alert("Chat ID not provided.");
-        }
         let tg = window.Telegram.WebApp;
         let order = document.getElementById("order");
         tg.expand();
 
         order.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value;
-            let email = document.getElementById("user_email").value;
-            let phone = document.getElementById("user_phone").value;
-            let data = {
-                name: name,
-                email: email,
-                phone: phone
-            }
-            tg.sendData(JSON.stringify(data));
-            tg.close();
+            let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+            
+            // tg.sendData(JSON.stringify(data));
+            // tg.close();
         });
     </script>
 
