@@ -79,21 +79,16 @@
         <p></p>
         <input type="text" placeholder="Телефон" id="user_phone">
         <p></p>
-        <button id="open">Открыть</button>
-        <p></p>
+        
         <button id="order">Записаться</button>
         
     </form>
     <script src=" https://telegram.org/js/telegram-web-app.js "></script>
     <script>
         let tg = window.Telegram.WebApp;
-        let open = document.getElementById("open");
         let order = document.getElementById("order");
         tg.expand();
-
-        open.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;    
-        });
+        let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
 
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
