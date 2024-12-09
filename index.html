@@ -73,7 +73,7 @@
         <label for="fullname">ФИО:</label>
 
         <h1>Записаться на приём.</h1>
-        <input type="text" placeholder="Имя" id="user_nsmr">
+        <input type="text" placeholder="Имя" id="user_name">
         <p></p>
         <input type="text" placeholder="Email" id="user_email">
         <p></p>
@@ -91,9 +91,7 @@
         tg.expand();
 
         open.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
-            
-            
+            let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;    
         });
 
         order.addEventListener("click", () => {
