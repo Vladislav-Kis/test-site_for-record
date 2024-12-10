@@ -70,7 +70,7 @@
 </head>
 <body>
     <form id="form">
-        <label for="fullname">1ФИО:</label>
+        <label for="fullname">2ФИО:</label>
 
         <h1>Записаться на приём.</h1>
         <input type="text" placeholder="Имя" id="user_name">
@@ -90,12 +90,12 @@
         let tg = window.Telegram.WebApp;
         let order = document.getElementById("order");
         tg.expand();
-        let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name + " ";
+        document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name + " ";
         const urlParams = new URLSearchParams(window.location.search);
         const Lastname = urlParams.get("Lasttname")
         const Firstname = urlParams.get("Firstname")
         const Middlename = urlParams.get("Middlename")
-        let full_name= document.getElementById("fullname").value = Lastname + " " + Firstname + " " + Middlename
+        document.getElementById("fullname").value = Lastname + " " + Firstname + " " + Middlename
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
             let full_name = document.getElementById("fullname").value;
