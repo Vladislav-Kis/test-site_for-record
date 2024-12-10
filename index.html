@@ -73,9 +73,9 @@
         <label for="fullname">ФИО:</label>
 
         <h1>Записаться на приём.</h1>
-        <input type="text" placeholder="Имя" id="user_name">
+        <input type="text" placeholder="Имя" id="user_name" disabled>
         <p></p>
-        <input type="text" placeholder="ФИО" id="fullname">
+        <input type="text" placeholder="ФИО" id="fullname" disabled>
         <p></p>
         <input type="text" placeholder="Email" id="user_email">
         <p></p>
@@ -90,15 +90,17 @@
         let tg = window.Telegram.WebApp;
         let order = document.getElementById("order");
         tg.expand();
+        let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
         const urlParams = new URLSearchParams(window.location.search);
         const chatId = urlParams.get("id")
         document.getElementById("fullname").value = chatId
         order.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value;
+            let name = document.getElementById("name").value;
+            let fullname = document.getElementById("fullname").value;
             let email = document.getElementById("user_email").value;
             let phone = document.getElementById("user_phone").value;
             let data = {
-                name: name,
+                fullname: fullname,
                 email: email,
                 phone: phone
             }
