@@ -90,13 +90,9 @@
         let tg = window.Telegram.WebApp;
         let order = document.getElementById("order");
         tg.expand();
-        let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
-        if (tg.initDataUnsafe){
-            const initData = tg.initDataUnsafe;
-            const userData = JSON.parse(initData.userData || '{}');
-            const fullName = `${userData.Firstname || ''} ${userData.Lastname || ''} ${userData.Middlename || ''}`.trim();
-            document.getElementById('fullname').value = FullName;
-        }
+        const urlParams = new URLSearchParams(window.location.search);
+        const chatId = urlParams.get("id")
+        document.getElementById("fullname").value = chatId
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
             let email = document.getElementById("user_email").value;
