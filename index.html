@@ -90,12 +90,12 @@
         let tg = window.Telegram.WebApp;
         let order = document.getElementById("order");
         tg.expand();
-        document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name + " ";
+        let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name + " ";
         const urlParams = new URLSearchParams(window.location.search);
         const Lastname = urlParams.get("Lasttname")
         const Firstname = urlParams.get("Firstname")
         const Middlename = urlParams.get("Middlename")
-        document.getElementById("fullname").value = Lastname + " " + Firstname + " " + Middlename
+        let full_name = document.getElementById("fullname").value = Lastname + " " + Firstname + " " + Middlename
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
             let full_name = document.getElementById("fullname").value;
@@ -103,7 +103,7 @@
             let phone = document.getElementById("user_phone").value;
             let data = {
                 name: name,
-                fullname: fullname,
+                full_name: fullname,
                 email: email,
                 phone: phone
             }
