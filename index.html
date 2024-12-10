@@ -70,12 +70,12 @@
 </head>
 <body>
     <form id="form">
-        <label for="fullname">2ФИО:</label>
+        <label for="fullname">ФИО:</label>
 
         <h1>Записаться на приём.</h1>
-        <input type="text" placeholder="Имя" id="user_name" disabled>
+        <input type="text" placeholder="Имя" id="user_name">
         <p></p>
-        <input type="text" placeholder="ФИО" id="fullname" disabled>
+        <input type="text" placeholder="ФИО" id="fullname">
         <p></p>
         <input type="text" placeholder="Email" id="user_email">
         <p></p>
@@ -92,8 +92,10 @@
         tg.expand();
         let name = document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name + " ";
         const urlParams = new URLSearchParams(window.location.search);
-        const Fullname = urlParams.get("id")
-        document.getElementById("fullname").value = Fullname
+        const Lastname = urlParams.get("Lasttname")
+        const Firstname = urlParams.get("Firstname")
+        const Middlename = urlParams.get("Middlename")
+        document.getElementById("fullname").value = Lastname + " " + Firstname + " " + Middlename
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
             let fullname = document.getElementById("fullname").value;
