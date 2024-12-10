@@ -70,7 +70,7 @@
 </head>
 <body>
     <form id="form">
-        <label for="fullname">2ФИО:</label>
+        <label for="fullname">ФИО:</label>
 
         <h1>Записаться на приём.</h1>
         <input type="text" placeholder="Имя" id="user_name">
@@ -98,12 +98,12 @@
         let full_name = document.getElementById("fullname").value = Lastname + " " + Firstname + " " + Middlename
         order.addEventListener("click", () => {
             let name = document.getElementById("user_name").value;
-            let fullname = document.getElementById("fullname").value;
+            let full_name = document.getElementById("fullname").value;
             let email = document.getElementById("user_email").value;
             let phone = document.getElementById("user_phone").value;
             let data = {
                 name: name,
-                fullname: fullname,
+                full_name: full_name,
                 email: email,
                 phone: phone
             }
